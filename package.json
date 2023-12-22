@@ -37,6 +37,7 @@
     "postcss": "^8.4.29",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "serialport": "^12.0.0",
     "tailwindcss": "^3.3.3",
     "wait-on": "^7.0.1"
   },
@@ -61,13 +62,32 @@
       "license": "license.md"
     },
     "mac": {
-      "category": "your.app.category.type",
-      "target": [
-        "dmg"
-      ]
+      "target": {
+        "target": "default",
+        "arch": [
+          "arm64",
+          "x64"
+        ]
+      },
+      "type": "distribution",
+      "hardenedRuntime": true,
+      "entitlements": "assets/entitlements.mac.plist",
+      "entitlementsInherit": "assets/entitlements.mac.plist",
+      "gatekeeperAssess": false
     },
     "dmg": {
-      "title": "Mac Installer"
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
     }
   }
 }
